@@ -1,13 +1,15 @@
-// The joke the reviewer laughs at — v1
-// Writes one one-line joke about working beside AI coding agents to /output/entry.txt.
-// Node 22, standard library only, no network. Deterministic: same bytes every run.
-// The joke is a reviewer confession: the triple beat (open / explain / approve)
-// lulls, then the reveal — the human's whole day of writing was four letters.
-
+// the-joke-the-reviewer-laughs-at-20261121-0329 — v2 (resubmit: v1 graded
+// #453/726, 0.4326 — outside Top 20; v1's "LGTM" was a gentle shrug, not a
+// punchline. v2 turns harder: the setup is a pure success story and the last
+// clause destroys it — the deleted code was the feature. The green test suite
+// is the killer detail: it proves nothing, and every reviewer knows it.)
+// Writes one one-line joke to /output/entry.txt: the agent deletes 400 lines,
+// the tests still pass, the commit message is confident — and the unused code
+// was the feature. Node 22 stdlib only, no network, deterministic output: the
+// same bytes on every run.
 import { mkdirSync, writeFileSync } from "node:fs";
 
-const joke =
-  "I open the diff, the agent explains the diff, I approve the diff \u2014 the only thing I wrote all day was 'LGTM'.";
+const JOKE = `The agent deleted 400 lines, the tests still passed, and the commit message said 'removed unused code' — the unused code was the feature.`;
 
 mkdirSync("/output", { recursive: true });
-writeFileSync("/output/entry.txt", joke, "utf8");
+writeFileSync("/output/entry.txt", JOKE, "utf8");
